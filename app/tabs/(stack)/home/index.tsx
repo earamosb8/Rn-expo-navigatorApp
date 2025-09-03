@@ -1,7 +1,7 @@
 import {View, Text } from 'react-native';
 import { Link,router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import CustomButton from '@/components/shared/customButton';
+import CustomButton from '@/components/shared/CustomButton';
 const HomeScreen = () =>{
     return(
         <SafeAreaView>
@@ -9,7 +9,7 @@ const HomeScreen = () =>{
                  <CustomButton
                     className="mb-2"
                     color='primary'
-                    onPress={() => router.push('/products')}
+                    onPress={() => router.push('/tabs/(stack)/products')}
                 >
                     Products
                 </CustomButton>
@@ -17,7 +17,7 @@ const HomeScreen = () =>{
                 <CustomButton
                     className="mb-2"
                     color='secondary'
-                    onPress={() => router.push('/profile')}
+                    onPress={() => router.push('/tabs/(stack)/profile')}
                 >
                    Profile
                 </CustomButton>
@@ -25,7 +25,7 @@ const HomeScreen = () =>{
                 <CustomButton
                     className="mb-2"
                     color='tertiary'
-                    onPress={() => router.push('/settings')}
+                    onPress={() => router.push('/tabs/(stack)/settings')}
                 >
                    Ajustes
                 </CustomButton>
@@ -34,7 +34,7 @@ const HomeScreen = () =>{
                     variant='text-only'
                     className="mb-2"
                     color='primary'
-                    onPress={() => router.push('/settings')}
+                    onPress={() => router.push('/tabs/(stack)/settings')}
                 >
                    Productos
                 </CustomButton>
