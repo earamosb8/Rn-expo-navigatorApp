@@ -6,7 +6,7 @@ const TabsLayout = () => {
   return (
    <Tabs screenOptions={{ 
     tabBarActiveTintColor: 'indigo',
-    headerShown: false
+    //headerShown: false
      }}>
       <Tabs.Screen
         name="(stack)"

@@ -4,8 +4,8 @@ import { Link ,Redirect } from 'expo-router';
 const App = () => {
 // para que nuestra aplicacion inicie desde una ruta en especial
 //return <Redirect href="/tabs"/>
-return <Redirect href="/drawer"/>
-
+//return <Redirect href="/drawer"/>
+return <Redirect href="/home"/>
 /*    return (
        <SafeAreaView>
             <View className='mt-6 mx-5'>

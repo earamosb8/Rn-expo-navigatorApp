@@ -1,15 +1,23 @@
 import {View, Text } from 'react-native';
-import { Link,router } from 'expo-router';
+import { Link,router, useNavigation } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { DrawerActions } from '@react-navigation/native';
 import CustomButton from '@/components/shared/CustomButton';
 const HomeScreen = () =>{
+
+    const navigation = useNavigation();
+
+
+    const onToggleDrawer = () =>{
+        navigation.dispatch( DrawerActions.toggleDrawer)
+    }
     return(
         <SafeAreaView>
             <View className='px-10 mt-5'>
                  <CustomButton
                     className="mb-2"
                     color='primary'
-                    onPress={() => router.push('/tabs/(stack)/products')}
+                    onPress={() => router.push('/products')}
                 >
                     Products
                 </CustomButton>
@@ -17,7 +25,7 @@ const HomeScreen = () =>{
                 <CustomButton
                     className="mb-2"
                     color='secondary'
-                    onPress={() => router.push('/tabs/(stack)/profile')}
+                    onPress={() => router.push('/profile')}
                 >
                    Profile
                 </CustomButton>
@@ -25,7 +33,7 @@ const HomeScreen = () =>{
                 <CustomButton
                     className="mb-2"
                     color='tertiary'
-                    onPress={() => router.push('/tabs/(stack)/settings')}
+                    onPress={() => router.push('/settings')}
                 >
                    Ajustes
                 </CustomButton>
@@ -34,11 +42,11 @@ const HomeScreen = () =>{
                     variant='text-only'
                     className="mb-2"
                     color='primary'
-                    onPress={() => router.push('/tabs/(stack)/settings')}
+                    onPress={() => router.push('/drawer/tabs/settings')}
                 >
                    Productos
                 </CustomButton>
-
+                <CustomButton onPress={onToggleDrawer}>Abrir menú</CustomButton>
 
                {/* <Link href="/products" asChild>
                     <CustomButton

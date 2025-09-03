@@ -1,8 +1,10 @@
+import { View, Text, FlatList } from 'react-native';
 import { products } from '@/store/products.store';
 import { Link } from 'expo-router';
-import {View, Text, FlatList} from 'react-native';
 
 const ProductsScreen = () =>{
+
+    
     return(
         <View className='flex flex-1'>
             <FlatList 
@@ -14,7 +16,7 @@ const ProductsScreen = () =>{
                         <Text >{item.description}</Text>
                         <View className='flex flex-row justify-between mt-2'>
                             <Text className='font-work-black'>{item.price}</Text>
-                            <Link href={`/tabs/(stack)/products/${item.id}`} className='text-primary'>
+                            <Link href={`/products/${item.id}`} className='text-primary'>
                                 Ver detalles
                             </Link>
                         </View>

@@ -1,14 +1,34 @@
-import { Stack } from 'expo-router';
+import { Stack, useNavigation } from 'expo-router';
 import { View, Text } from 'react-native';
+import { DrawerActions, StackActions } from '@react-navigation/native';
+import { Ionicons } from '@expo/vector-icons';
+
+
+
+
+
 const StackLayout = () =>{
+
+    const navigation = useNavigation();
+
+    const onHeaderLeftCLick = (canGoBack:boolean) =>{
+       if (canGoBack) {
+         navigation.goBack(); // ✅ más seguro que StackActions.pop()
+        return;
+    }
+        navigation.dispatch(DrawerActions.toggleDrawer());
+    }
     return (
         <Stack 
             screenOptions={{
-                headerShown: false,
+                //headerShown: false,
                 headerShadowVisible:false,
                 contentStyle:{
                     backgroundColor:'white'
-                }
+                },
+                headerLeft: ({tintColor,canGoBack}) =>
+                    <Ionicons name={canGoBack ? 'arrow-back-outline':'grid-outline'} size={20} className='mr-10'
+                    onPress={()=>onHeaderLeftCLick(canGoBack)}/>
             }}>
             <Stack.Screen
             name='home/index'
